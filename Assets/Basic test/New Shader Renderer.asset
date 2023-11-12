@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26bc9d9236b3da1458053587f8e1f696, type: 3}
   m_Name: New Shader Renderer
   m_EditorClassIdentifier: 
-  _shader: {fileID: 0}
-  Resolution: {x: 256, y: 256}
-  BaseColor: 0
+  _shader: {fileID: -6465566751694194690, guid: 71d451ddeb20aef479d855f6c21e84f3,
+    type: 3}
+  Resolution: {x: 2048, y: 2048}
+  BaseColor: 1
   Normal: 0
   Metalic: 0
   Smoothness: 0
