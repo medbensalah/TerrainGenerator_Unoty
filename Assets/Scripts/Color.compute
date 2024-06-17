@@ -1,0 +1,39 @@
+// Each #kernel tells which function to compile; you can have many kernels
+#pragma kernel Color
+
+// Create a RenderTexture with enableRandomWrite flag and set it
+// with cs.SetTexture
+RWTexture2D<float> _heightMap;
+RWTexture2D<float4> Result;
+
+float4 _seaColor;
+float4 _shoreColor;
+float4 _grassColor;
+float4 _dirtColor;
+float4 _snowColor;
+
+[numthreads(8,8,1)]
+void Color (uint3 id : SV_DispatchThreadID)
+{
+    float height = _heightMap[id.xy] * 2.0f;
+    if (height <= 0.26)
+    {
+        Result[id.xy] = _seaColor;
+    }
+    else if (height <= 0.27)
+    {
+        Result[id.xy] = _shoreColor;
+    }
+    else if (height <= 0.45)
+    {
+        Result[id.xy] = _grassColor;
+    }
+    else if (height <= 0.83)
+    {
+        Result[id.xy] = _dirtColor;
+    }
+    else
+    {
+        Result[id.xy] = _snowColor;
+    }
+}
